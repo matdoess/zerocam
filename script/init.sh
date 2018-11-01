@@ -9,3 +9,6 @@ sudo apt-get upgrade
 
 ## Setup Python3
 ./init_python.sh
+
+## Install Service Files
+./init_service.sh

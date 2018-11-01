@@ -1,0 +1,14 @@
+[Unit]
+Description=Service to handle GPIO Button Presses
+
+[Service]
+User=pi
+Group=pi
+Type=simple
+WorkingDirectory=/home/pi/zerocam
+ExecStart=/usr/bin/python3 /home/pi/zerocam/gpiobutton.py
+RestartSec=10
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
