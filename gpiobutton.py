@@ -48,7 +48,8 @@ GPIO.add_event_detect(24, GPIO.FALLING, callback=myInterrupt, bouncetime=500)
 
 # Endlosschleife, bis Strg-C gedrueckt wird
 try:
-  input("Waiting for GPIO Interrupt event")
+    while True:
+        time.sleep(1)
 except KeyboardInterrupt:
   GPIO.cleanup()
 
