@@ -28,11 +28,3 @@ def form_submit(request):
     run(pscmd)
 
     # return HttpResponse(template.render(context, request))
-
-def live(request):
-    template = loader.get_template('live.html')
-
-    context = {
-        'latest_question_list': 'Hi wie gehts',
-    }
-    return HttpResponse(template.render(context, request))

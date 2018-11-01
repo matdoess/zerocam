@@ -23,12 +23,16 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 1. pipenv install
 2. Projekt erstellen django-admin startproject zerocam_ui
 3. In zerocam_ui Ordner wechseln
-4. Django App erstellen python manage.py startapp wifi_setup
-5. Anleitung befolgen https://docs.djangoproject.com/en/2.1/intro/tutorial01/
-6. Admin User erstellen python manage.py createsuperuser
+4. pipenv shell
+5. Django App erstellen python manage.py startapp wifi_setup
+6. Anleitung befolgen https://docs.djangoproject.com/en/2.1/intro/tutorial01/
+7. Admin User erstellen python manage.py createsuperuser
 
 ### Run Application
 1. cd zerocam/
 2. pipenv install
 3. pipenv run zerocam_ui/manage.py runserver
 4. Enjoy
+
+### Livestream
+-- Symlink anlegen damit django die Files ausliefert ln -s /run/shm/hls /home/pi/zerocam/zerocam_ui/wifi_setup/static/video

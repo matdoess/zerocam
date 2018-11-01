@@ -1,0 +1,45 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/video-style.css' %}">
+
+<div class="container">
+    <h1>Willkommen im Video Bereich</h1>
+
+    <div class="row margin-top-lg">
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+            <a class="video-navigation-option text-center" href="{% url 'video:live' %}">
+                <span class="video-navigation-icon glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+                <span class="video-navigation-text">
+                    Live Stream
+                </span>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+            <a class="video-navigation-option text-center" href="{% url 'video:live' %}">
+                <span class="video-navigation-icon glyphicon glyphicon-cloud" aria-hidden="true"></span>
+                <span class="video-navigation-text">
+                    Time Lapse
+                </span>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+            <a class="video-navigation-option text-center" href="{% url 'wifi_setup:index' %}">
+                <span class="video-navigation-icon glyphicon glyphicon-cog" aria-hidden="true"></span>
+                <span class="video-navigation-text">
+                    Settings
+                </span>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-lg-3">
+            <a class="video-navigation-option text-center" href="{% url 'admin:index' %}">
+                <span class="video-navigation-icon glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span class="video-navigation-text">
+                    Admin
+                </span>
+            </a>
+        </div>
+    </div>
+
+</div>
+

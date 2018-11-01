@@ -24,5 +24,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('wifi-setup/', include('wifi_setup.urls')),
+    path('video/', include('video.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -1,0 +1,28 @@
+.video-navigation-option {
+    width: 250px;
+    height: 250px;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,.5);
+    transition: all .3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.video-navigation-option:hover {
+    box-shadow: 4px 4px 10px 1px rgba(0,0,0,.5);
+    text-decoration: none;
+}
+
+.video-navigation-text {
+    font-size: 36px;
+    height: 100%;
+}
+
+.video-navigation-icon {
+    margin-top: 25px;
+    font-size: 140px;
+    display: block;    
+}
+
+.margin-top-lg {
+    margin-top: 45px;
+}
