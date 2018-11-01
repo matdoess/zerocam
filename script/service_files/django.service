@@ -1,13 +1,13 @@
 [Unit]
-Description=Service to handle GPIO Button Presses
+Description=Django Server for zerocam Webinterface
 
 [Service]
 User=pi
 Group=pi
 Type=simple
 WorkingDirectory=/home/pi/zerocam
-ExecStart=/usr/bin/python3 /home/pi/zerocam/zerocam_ui/manage.py runserver 0:8000
-RestartSec=10
+ExecStart=/usr/local/bin/pipenv run /home/pi/zerocam/zerocam_ui/manage.py runserver 0:8000
+RestartSec=30
 Restart=on-failure
 
 [Install]
