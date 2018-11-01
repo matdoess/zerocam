@@ -7,3 +7,10 @@ sudo cp service_files/django.service /etc/systemd/system/
 sudo systemctl enable django.service
 
 sudo cp service_files/picam.service /etc/systemd/system/
+
+sudo cp service_files/picam-ramdisk.service /etc/systemd/system/
+sudo systemctl enable picam-ramdisk.service
+
+sudo tee -a /etc/systemd/logind.conf > /dev/null << EOF
+RemoveIPC=no
+EOF
