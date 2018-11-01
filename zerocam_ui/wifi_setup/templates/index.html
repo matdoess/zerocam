@@ -1,0 +1,10 @@
+<form action="{% url 'wifi_setup:form_submit' %}" method="post">
+    {% csrf_token %}
+    <label for="ssid">SSID</label>
+    <input type="text" name="ssid" placeholder="SSID" id="ssid">
+    <br>
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="Password" id="password">
+    <br>
+    <button type="submit">LOS</button>
+</form>

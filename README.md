@@ -28,3 +28,4 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 4. In zerocam_ui Ordner wechseln
 5. Django App erstellen python manage.py startapp wifi_setup
 6. Anleitung befolgen https://docs.djangoproject.com/en/2.1/intro/tutorial01/
+7. Admin User erstellen python manage.py createsuperuser
