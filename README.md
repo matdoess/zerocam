@@ -16,9 +16,7 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 -- Script um zwischen AP und Wifi zu wechseln
 
 ## Python
-1. pip3 install --user pipenv
-2. Im zerocam Ordner python3 -m venv python_env ausführen
-3. venv starten python_env/bin/activate
+1. pip3 install --user pipenv (required)
 
 ## Django
 ### Setup Project(for Documentation only)
