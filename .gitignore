@@ -1,3 +1,4 @@
 setup_picam/
 .vscode/
 __pycache__/
+Pipfile.lock
