@@ -19,14 +19,20 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def form_submit(request):
-    template = loader.get_template('response.html')
+    # template = loader.get_template('response.html')
 
-    context = {
-        'ssid': request.POST['ssid'],
-        'password': request.POST['password'],
-    }
+    # context = {
+    # }
 
     pscmd = shlex.split("sudo /home/pi/zerocam/script/switchap.sh wifi 'FRITZ!Box 7590 SR' 25902909888682070047")
     run(pscmd)
 
+    # return HttpResponse(template.render(context, request))
+
+def live(request):
+    template = loader.get_template('live.html')
+
+    context = {
+        'latest_question_list': 'Hi wie gehts',
+    }
     return HttpResponse(template.render(context, request))
