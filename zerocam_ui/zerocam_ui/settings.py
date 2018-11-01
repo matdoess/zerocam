@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "zerocam.local",
+    "zerocam",
     "localhost",
     "127.0.0.1"
 ]
