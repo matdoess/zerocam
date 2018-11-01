@@ -2,4 +2,4 @@ setup_picam/
 .vscode/
 __pycache__/
 Pipfile.lock
-wifi_setup/static/video/
+zerocam_ui/wifi_setup/static/video
