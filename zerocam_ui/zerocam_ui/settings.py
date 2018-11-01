@@ -25,7 +25,7 @@ SECRET_KEY = '=begnsj7ba=-e+sijo1z*1fzspogvr!viv&)y*3%h7u=j4)3=&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["zerocam.local"]
 
 
 # Application definition
