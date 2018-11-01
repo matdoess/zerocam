@@ -1,0 +1,26 @@
+## USB OTG - Ethernet ##
+
+Aktivieren auf Pi: https://blog.gbaman.info/?p=791
+Aktivieren auf Linux: Network Manager > USB Ethernet > Config > IPv4 > Link-Local Only
+
+## SSH ##
+user: pi
+pw: raspberry
+
+## Config ##
+sudo raspi-config
+
+* Settings *
+hostname: zerocam
+
+
+## Webserver ##
+
+* Picam Stream
+http://zerocam.local/hls/index.m3u8
+rtmp://zerocam.local/webcam/mystream
+rtmp://zerocam.local/live/picam
+rtsp://zerocam.local:80/live/picam
+
+## Software ##
+sudo apt-get install git npm ffmpeg

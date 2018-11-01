@@ -1,0 +1,17 @@
+## Install ##
+
+https://github.com/iizukanao/picam
+
+## Streaming ##
+
+* nginx server
+https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md
+
+* rtmp streaming
+sudo apt-get install ffmpeg
+which ffmpeg >> Speicherort ffmpeg anzeigen und in nginx.conf eintragen (siehe picam anleitung)
+sudo nano /etc/nginx/nginx.conf
+sudo service nginx restart
+
+sudo apt-get install npm
+sudo npm install --global coffeescript
