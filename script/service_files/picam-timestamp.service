@@ -1,0 +1,10 @@
+[Unit]
+Description=Picam Timestamp Service
+
+[Service]
+User=pi
+Group=pi
+Type=simple
+WorkingDirectory=/home/pi/picam
+ExecStart=/home/pi/zerocam/script/picam_timestamp.sh
+
