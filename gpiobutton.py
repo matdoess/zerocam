@@ -16,7 +16,7 @@ buttonStatus = 0
 GPIO.setmode(GPIO.BCM)
 
 # GPIO 18 (Pin 12) als Input definieren und Pullup-Widerstand aktivieren
-GPIO.setup(24, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(3, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 def myInterrupt(channel):
     global buttonStatus
@@ -34,16 +34,17 @@ def myInterrupt(channel):
 
 def shutdown():
     print("gpiobutton: executing sudo halt")
+    GPIO.cleanup()
     pscmd = shlex.split("sudo halt")
     run(pscmd)
 
 def startap():
     print("gpiobutton: executing switchap.sh ap")
+    GPIO.cleanup()
     pscmd = shlex.split("sudo /home/pi/zerocam/script/switchap.sh ap")
     run(pscmd)
 
-
-GPIO.add_event_detect(24, GPIO.FALLING, callback=myInterrupt, bouncetime=500)
+GPIO.add_event_detect(3, GPIO.FALLING, callback=myInterrupt, bouncetime=500)
 
 
 # Endlosschleife, bis Strg-C gedrueckt wird
@@ -51,5 +52,7 @@ try:
     while True:
         time.sleep(1)
 except KeyboardInterrupt:
-  GPIO.cleanup()
+    GPIO.cleanup()
+finally:
+    GPIO.cleanup()
 

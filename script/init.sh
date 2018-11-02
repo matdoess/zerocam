@@ -12,3 +12,6 @@ sudo apt-get upgrade
 
 ## Install Service Files
 ./init_service.sh
+
+## Setup i2s mems microphon
+init_i2s-mems-mic.sh
