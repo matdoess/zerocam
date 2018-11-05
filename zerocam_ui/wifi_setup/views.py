@@ -24,7 +24,11 @@ def form_submit(request):
     # context = {
     # }
 
-    pscmd = shlex.split("sudo /home/pi/zerocam/script/switchap.sh wifi 'FRITZ!Box 7590 SR' 25902909888682070047")
+    ssid="'" + request.POST.get("ssid", "") + "'"
+    password="'" + request.POST.get("password", "") + "'"
+
+    #print("SSID=","ssid"," Passwort=","password")
+    pscmd = shlex.split("sudo /home/pi/zerocam/script/switchap.sh wifi " + ssid + " " + password)
     run(pscmd)
 
     # return HttpResponse(template.render(context, request))
