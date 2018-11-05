@@ -3,3 +3,4 @@ setup_picam/
 __pycache__/
 Pipfile.lock
 zerocam_ui/wifi_setup/static/video
+testing/img
