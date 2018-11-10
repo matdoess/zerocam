@@ -1,11 +1,12 @@
 [Unit]
 Description=Picam Service
-Wants=picam-timestamp.service
+#not used anymore due to picam time option
+#Wants=picam-timestamp.service
 
 [Service]
 User=pi
 Group=pi
 Type=simple
 WorkingDirectory=/home/pi/picam
-ExecStart=/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10
+ExecStart=/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time --timeformat "%F %T"
 

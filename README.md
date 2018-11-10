@@ -1,6 +1,19 @@
 # zerocam
 Python based interface for the pi zero w for timelapse videos and live streaming
 
+## System Info
+### User & Password
+* Linux - pi:raspberry
+* Django - 
+### URL's
+* hostname
+  * zerocam
+  * zerocam.local
+* livestream
+  * Django: http://zerocam.local:8000/static/video/index.m3u8
+  * nginx: http://zerocam.local/hls/index.m3u8
+  * node-rtsp-rtmp-server: <rtmp://zerocam.local/live/picam>
+
 ## folders
 - testing: code snippets and testing of modules
 
@@ -36,3 +49,12 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 
 ### Livestream
 -- Symlink anlegen damit django die Files ausliefert ln -s /run/shm/hls /home/pi/zerocam/zerocam_ui/wifi_setup/static/video
+
+## Commands for Testing
+### picam
+picam with hls streaming / framerate 25 / volume gain 10x:  
+`/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time`  
+picam with timestam
+`/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time`  
+picam with timeformat "2018-12-01 12:30:05"
+`/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time --timeformat "%F %T"`
