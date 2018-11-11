@@ -25,15 +25,15 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 - testing: code snippets and testing of modules
 
 ## TODO
-- [ ]Django Webinterface
-- [ ]HotSpot
-  - [x]Aktiviern über Button
-  - [x]Script um zwischen AP und Wifi zu wechseln
-- [ ]WiFi
-  - [x]aktivieren über Webinterface
-- [ ]Stop-Motion Push-Button (in webinterface)
+- [ ] Django Webinterface
+- [ ] HotSpot
+  - [x] Aktiviern über Button
+  - [x] Script um zwischen AP und Wifi zu wechseln
+- [ ] WiFi
+  - [x] aktivieren über Webinterface
+- [ ] Stop-Motion Push-Button (in webinterface)
   - https://projects.raspberrypi.org/en/projects/push-button-stop-motion
-- [ ]Timelaps Videos
+- [ ] Timelaps Videos
 
 ## Python
 1. pip3 install --user pipenv (required)
