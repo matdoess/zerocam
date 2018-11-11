@@ -13,20 +13,27 @@ Python based interface for the pi zero w for timelapse videos and live streaming
   * Django: http://zerocam.local:8000/static/video/index.m3u8
   * nginx: http://zerocam.local/hls/index.m3u8
   * node-rtsp-rtmp-server: <rtmp://zerocam.local/live/picam>
+* webinterface
+  * Django Landing Page: http://zerocam.local:8000/video/
+### .service files
+`picam.service` | start picam streaming  
+`django.service` | Django Webinterface  
+`gpiobutton.service` | listen for button press and shutdown pi or activate access point  
+`picam-ramdisk.service` | create ramdisk folder on startup  
 
 ## folders
 - testing: code snippets and testing of modules
 
 ## TODO
-- Django Webinterface
-- HotSpot
--- Aktiviern über Button
-- WiFi
--- aktivieren über Webinterface
-
-## DONE
-- Hotspot
--- Script um zwischen AP und Wifi zu wechseln
+- [ ]Django Webinterface
+- [ ]HotSpot
+  - [x]Aktiviern über Button
+  - [x]Script um zwischen AP und Wifi zu wechseln
+- [ ]WiFi
+  - [x]aktivieren über Webinterface
+- [ ]Stop-Motion Push-Button (in webinterface)
+  - https://projects.raspberrypi.org/en/projects/push-button-stop-motion
+- [ ]Timelaps Videos
 
 ## Python
 1. pip3 install --user pipenv (required)
@@ -53,8 +60,39 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 ## Commands for Testing
 ### picam
 picam with hls streaming / framerate 25 / volume gain 10x:  
+`/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10`  
+picam with timestam  
 `/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time`  
-picam with timestam
-`/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time`  
-picam with timeformat "2018-12-01 12:30:05"
+picam with timeformat "2018-12-01 12:30:05"  
 `/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time --timeformat "%F %T"`
+
+# Reference
+## picamera
+https://picamera.readthedocs.io/en/release-1.13/index.html  
+
+## i2s mems mic
+https://github.com/mpromonet/v4l2rtspserver/issues/94#issuecomment-378788356  
+
+## Power Button
+https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi  
+
+
+# Programming Basics
+## Efficency of while loops
+
+* While: pass  
+Bad. 100% CPU
+
+* While: time.sleep(1)  
+Better. CPU every 1 sec
+
+* While: Event().wait()  
+https://stackoverflow.com/a/48631852  
+Python 3.2+ / No Windows / No CPU time
+
+* While: GPIO.wait_for_edge  
+https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi  
+when using while loop to wait for gpio
+but can't be used with `GPIO.add_event_detect`
+
+

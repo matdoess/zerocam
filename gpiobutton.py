@@ -9,13 +9,15 @@ import shlex
 from subprocess import Popen
 from subprocess import run
 
+from threading import Event
+
 # Button-Variable, global
 buttonStatus = 0
 
 # Pinreferenz waehlen
 GPIO.setmode(GPIO.BCM)
 
-# GPIO 18 (Pin 12) als Input definieren und Pullup-Widerstand aktivieren
+# GPIO 3 (Pin 5) als Input definieren und Pullup-Widerstand aktivieren
 GPIO.setup(3, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
 def myInterrupt(channel):
@@ -50,7 +52,10 @@ GPIO.add_event_detect(3, GPIO.FALLING, callback=myInterrupt, bouncetime=500)
 # Endlosschleife, bis Strg-C gedrueckt wird
 try:
     while True:
-        time.sleep(1)
+        ## 3 options for the while loop
+        #time.sleep(1)
+        Event().wait()
+        #GPIO.wait_for_edge(3, GPIO.FALLING) #can't be used with GPIO.add_event_detect
 except KeyboardInterrupt:
     GPIO.cleanup()
 finally:
