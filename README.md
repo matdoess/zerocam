@@ -5,6 +5,11 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 ### User & Password
 * Linux - pi:raspberry
 * Django - 
+### Access Point
+* SSID: `zerocamap`
+* Password: `zerocampw`
+* static ip: `192.168.4.1`
+* dhcp-range: `192.168.4.2 - 192.168.4.20`
 ### URL's
 * hostname
   * zerocam
@@ -22,7 +27,9 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 `picam-ramdisk.service` | create ramdisk folder on startup  
 
 ## folders
-- testing: code snippets and testing of modules
+- `testing`: code snippets and testing of modules
+- `script`: mainly setup and startup scripts
+- `media`: folder for videos, images, timelapse, etc.
 
 ## TODO
 - [ ] Django Webinterface
