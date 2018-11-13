@@ -18,6 +18,7 @@ if [ $mode == ap ]
     sudo cp /etc/dhcpcd.conf.ap /etc/dhcpcd.conf
     sudo cp /etc/dnsmasq.conf.ap /etc/dnsmasq.conf
     sudo cp /etc/default/hostapd.ap /etc/default/hostapd
+    sudo cp /etc/hosts.ap /etc/hosts
     sudo echo "" > /etc/wpa_supplicant/wpa_supplicant.conf
     sudo reboot
 
@@ -28,6 +29,7 @@ elif [ $mode == wifi ]
     sudo cp /etc/dhcpcd.conf.orig /etc/dhcpcd.conf
     sudo cp /etc/dnsmasq.conf.orig /etc/dnsmasq.conf
     sudo cp /etc/default/hostapd.orig /etc/default/hostapd
+    sudo cp /etc/hosts.orig /etc/hosts
     sudo cp /etc/wpa_supplicant/wpa_supplicant.conf.empty /etc/wpa_supplicant/wpa_supplicant.conf
 cat >> /etc/wpa_supplicant/wpa_supplicant.conf <<EOF
 network={

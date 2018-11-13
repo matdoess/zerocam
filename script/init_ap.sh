@@ -16,6 +16,7 @@ sudo systemctl stop hostapd
 sudo cp /etc/dhcpcd.conf /etc/dhcpcd.conf.orig
 sudo cp /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
 sudo cp /etc/default/hostapd /etc/default/hostapd.orig
+sudo cp /etc/hosts /etc/hosts.orig
 sudo cp /etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf.orig
 # TODO wpa_supplicant.conf.orig.empty erstellen
 
@@ -61,10 +62,17 @@ EOF
 # clear /etc/wpa_supplicant/wpa_supplicant.conf
 sudo echo "" > /etc/wpa_supplicant/wpa_supplicant.conf
 
+# edit /etc/hosts
+#TODO: edit /etc/hosts with script
+echo "add 192.168.4.1 zerocam to /etc/hosts and comment out other zerocam entries"
+read -sn1 -p "When ready press key to continue"
+echo -e "\n"
+
 # AP Config Backup
 sudo cp /etc/dhcpcd.conf /etc/dhcpcd.conf.ap
 sudo cp /etc/dnsmasq.conf /etc/dnsmasq.conf.ap
 sudo cp /etc/default/hostapd /etc/default/hostapd.ap
+sudo cp /etc/hosts /etc/hosts.ap
 
 sudo systemctl start hostapd
 sudo systemctl start dnsmasq

@@ -1,6 +1,17 @@
 # zerocam
 Python based interface for the pi zero w for timelapse videos and live streaming
 
+## Used Hardware
+- [Raspberry Pi Zero W](https://www.exp-tech.de/plattformen/raspberry-pi/8268/raspberry-pi-zero-w)
+- [Offizielles Raspberry Pi Zero Gehäuse
+](https://www.exp-tech.de/zubehoer/gehaeuse/8860/raspberry-pi-zero-gehaeuse)
+- [Raspberry Pi Kameramodul v2
+](https://www.exp-tech.de/plattformen/raspberry-pi/7165/raspberry-pi-kameramodul-v2)
+- [Adafruit I2S MEMS Mikrofon-Breakout - SPH0645LM4H
+](https://www.exp-tech.de/module/audio/8016/adafruit-i2s-mems-mikrofon-breakout-sph0645lm4h)
+- [Tactile Button switch (6mm) x 20 pack
+](https://www.exp-tech.de/zubehoer/tasterschalter/6974/tactile-button-switch-6mm-x-20-pack)
+
 ## System Info
 ### User & Password
 * Linux - pi:raspberry
@@ -31,11 +42,42 @@ Python based interface for the pi zero w for timelapse videos and live streaming
 - `script`: mainly setup and startup scripts
 - `media`: folder for videos, images, timelapse, etc.
 
+## Setup
+### Basic Raspberry Setup
+- Set shared Memory to 256mb  
+  Needed for picamera pictures with highest resolution
+
+### ffmpeg installation (with hardware acceleration)
+https://github.com/legotheboss/YouTube-files/wiki/(RPi)-Compile-FFmpeg-with-the-OpenMAX-H.264-GPU-acceleration
+https://www.reddit.com/r/raspberry_pi/comments/5677qw/hardware_accelerated_x264_encoding_with_ffmpeg/
+https://askubuntu.com/questions/87111/if-i-build-a-package-from-source-how-can-i-uninstall-or-remove-completely
+
+Delete previous version of ffmpeg: `sudo apt-get remove ffmpeg`
+
+Install checkinstall: `sudo apt-get install checkinstall`
+
+Download and Compile ffmpeg with Hardware Acceleration on Raspberry Pi:
+```
+cd /home/pi/
+sudo apt-get install libomxil-bellagio-dev -y
+git clone https://github.com/FFmpeg/FFmpeg.git
+cd FFmpeg
+sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-omx --enable-omx-rpi --enable-nonfree
+sudo make
+sudo checkinstall
+```
+ 
+ You can remove it from your system anytime using:  
+ `dpkg -r ffmpeg`
+
+
+# Programming
 ## TODO
 - [ ] Django Webinterface
 - [ ] HotSpot
   - [x] Aktiviern über Button
   - [x] Script um zwischen AP und Wifi zu wechseln
+  - [ ] Change /etc/hosts with script (add 192.168.4.1 and comment out 127.0.1.1)
 - [ ] WiFi
   - [x] aktivieren über Webinterface
 - [ ] Stop-Motion Push-Button (in webinterface)
@@ -72,6 +114,14 @@ picam with timestam
 `/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time`  
 picam with timeformat "2018-12-01 12:30:05"  
 `/home/pi/picam/picam --alsadev complex_convert -o /run/shm/hls -f 25 --volume 10 --time --timeformat "%F %T"`
+
+### ffmpeg
+Create timelapse from jpg  
+`ffmpeg -framerate 10 -pattern_type glob -i '*.jpg' -r 25 timelapse10.mp4`  
+Create timelapse with hardware acceleration  
+(Change -framerate value to your needs)    
+`ffmpeg -framerate 10 -pattern_type glob -i '*.jpg' -c:v h264_omx -b:v 4000k -r 25 timelapse10.mp4`
+
 
 # Reference
 ## picamera
