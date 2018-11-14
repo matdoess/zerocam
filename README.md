@@ -67,9 +67,15 @@ sudo make
 sudo checkinstall
 ```
  
- You can remove it from your system anytime using:  
- `dpkg -r ffmpeg`
+You can remove it from your system anytime using:  
+`dpkg -r ffmpeg`
 
+If an error occurs when running checkinstall try:  
+`sudo checkinstall --fstrans=no`
+
+ffmpeg with mmal support (probably not needed):  
+https://maniaclander.blogspot.com/2017/08/ffmpeg-with-pi-hardware-acceleration.html   
+`sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-mmal --enable-omx --enable-omx-rpi --enable-nonfree`
 
 # Programming
 ## TODO
@@ -122,6 +128,15 @@ Create timelapse with hardware acceleration
 (Change -framerate value to your needs)    
 `ffmpeg -framerate 10 -pattern_type glob -i '*.jpg' -c:v h264_omx -b:v 4000k -r 25 timelapse10.mp4`
 
+### systemd
+https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units  
+
+check if service is active  
+https://stackoverflow.com/questions/30056280/test-if-a-systemd-unit-is-active-in-a-bash-script  
+`systemctl is-active picam.service`  
+check if service is active (only exit-code):  
+`systemctl -q is-active picam.service`
+
 
 # Reference
 ## picamera
@@ -152,4 +167,9 @@ https://howchoo.com/g/mwnlytk3zmm/how-to-add-a-power-button-to-your-raspberry-pi
 when using while loop to wait for gpio
 but can't be used with `GPIO.add_event_detect`
 
+## if conditions
 
+* Check if variable contains string  
+https://stackoverflow.com/questions/3437059/does-python-have-a-string-contains-substring-method  
+`if "string" in variable:`  
+`if "string" not in variable:` 

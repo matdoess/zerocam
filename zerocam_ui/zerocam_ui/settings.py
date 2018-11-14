@@ -29,7 +29,8 @@ ALLOWED_HOSTS = [
     "zerocam.local",
     "zerocam",
     "localhost",
-    "127.0.0.1"
+    "127.0.0.1",
+    "192.168.4.1"
 ]
 
 

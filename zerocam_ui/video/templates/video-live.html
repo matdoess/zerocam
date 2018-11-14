@@ -41,9 +41,17 @@
 </script>
 
 <br>
+<a class="btn btn-primary" href="/video/live">Reload</a>
+
+<br>
 <h3>picam control</h3>
 
 <a class="btn btn-success" href="?btnpicamstate=on">ON</a>
 <a class="btn btn-danger" href="?btnpicamstate=off">OFF</a>
+<a class="btn {{ picamstate|yesno:"btn-danger,btn-success,btn-success" }}" href="?btnpicamstate={{ picamstate|yesno:"off,on,on" }}">{{ picamstate|yesno:"OFF,ON,Undefined" }}</a>
 
-<h1>{{btnpicamstate}}</h1>
+<h1>btnpicamstate</h1>
+<h2>{{btnpicamstate}}</h1>
+<br>
+<h1>picamstate</h1>
+<h2>{{picamstate}}</h2>
